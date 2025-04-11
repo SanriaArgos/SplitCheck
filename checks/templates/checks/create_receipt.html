@@ -1,0 +1,39 @@
+{% extends "checks/base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">Создание нового чека</div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+            </div>
+            
+            <div class="mb-3">
+                {{ form.image.label_tag }}
+                {{ form.image }}
+            </div>
+            
+            <h5 class="mt-4">Позиции и цены в ₽</h5>
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="row mb-2 border-bottom">
+                    <div class="col-6">{{ form.name }}</div>
+                    <div class="col-5">{{ form.price }}</div>
+                </div>
+            {% endfor %}
+            
+            <h5 class="mt-4">Участники:</h5>
+            <div class="row g-2">
+                <div class="col-md-4">{{ form.participant1 }}</div>
+                <div class="col-md-4">{{ form.participant2 }}</div>
+                <div class="col-md-4">{{ form.participant3 }}</div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-4">Сохранить чек</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

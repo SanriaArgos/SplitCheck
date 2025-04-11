@@ -1,0 +1,13 @@
+{% extends "checks/base.html" %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-header">Регистрация</div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

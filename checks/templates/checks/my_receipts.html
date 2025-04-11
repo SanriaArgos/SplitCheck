@@ -1,0 +1,25 @@
+{% extends "checks/base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">Мои чеки</div>
+    <div class="card-body">
+        <a href="{% url 'create_receipt' %}" 
+           class="btn btn-success mb-3" 
+           id="create-btn">Создать новый чек</a>
+        
+        <div class="list-group">
+            {% for receipt in receipts %}
+                <a href="{% url 'receipt_detail' receipt.pk %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ receipt.title }}</h5>
+                        <small>{{ receipt.created_at|date:"d.m.Y H:i" }}</small>
+                    </div>
+                    <small>Участников: {{ receipt.participants.count }}</small>
+                </a>
+                {% empty %}
+                <div class="alert no-receipts">У вас пока нет чеков</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
