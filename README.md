@@ -43,7 +43,16 @@ SplitCheck - это веб-приложение на Django, которое по
    cd <RepositoryName>
    ```
 
-3. **Активировать виртуальное окружение**:
+3. **Создать виртуальное окружение** (например, `venv`):
+   ```bash
+   python3 -m venv venv
+   ```
+   или для Python 3.10:
+   ```bash
+   python3.10 -m venv venv
+   ```
+   
+4. **Активировать виртуальное окружение**:
    - Linux/Mac:
      ```bash
      source venv/bin/activate
@@ -53,17 +62,17 @@ SplitCheck - это веб-приложение на Django, которое по
      venv\Scripts\activate
      ```
 
-4. **Установить зависимости** из файла `requirements.txt`:
+5. **Установить зависимости** из файла `requirements.txt`:
    ```bash
    pip install -r requirements.txt
    ```
 
-5. **Выполнить миграции** (создать/обновить базу данных):
+6. **Выполнить миграции** (создать/обновить базу данных):
    ```bash
    python manage.py migrate
    ```
 
-6. **Запустить сервер** разработки:
+7. **Запустить сервер** разработки:
    ```bash
    python manage.py runserver
    ```
